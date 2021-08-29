@@ -1,0 +1,21 @@
+@import '../../setting';
+//color
+$board-bg-color: #0079bf;
+$app-bar-bg-color: #0067a3;
+
+
+//px
+$gap : 10px;
+$column-header-height: 36px;
+$column-footer-height: 36px;
+$column-border-radius: 8px;
+$card-border-radius: 5px;
+
+
+.navbar-app {
+    padding-left: $gap;
+    display:flex;
+    align-items: center;
+    background-color: $app-bar-bg-color;
+    font-size:1.5rem;  
+}

@@ -1,0 +1,9 @@
+@import '../../setting';
+
+.navbar-board {
+    padding-left: $gap;
+    display:flex;
+    align-items: center;
+    $board-bg-color: #0079bf;
+    font-size:1.5rem;  
+}

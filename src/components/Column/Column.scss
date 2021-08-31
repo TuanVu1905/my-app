@@ -14,7 +14,8 @@
       padding : 0 8px;
     }
     header {
-      padding-left: 15px;
+      padding: 10px;
+      text-align: center;
       height: $column-header-height;
       line-height: $column-header-height;
       font-size: 16px;
@@ -31,7 +32,7 @@
       border-bottom-left-radius: $column-border-radius;
       border-bottom-right-radius: $column-border-radius;
     }
-    ul.task-list {
+    ul.card-list {
        list-style-type: none;
        margin: 0;
        max-height: calc(100% - #{$column-header-height} - #{$column-footer-height});

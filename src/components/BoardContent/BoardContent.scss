@@ -2,10 +2,11 @@
 
 
 .board-contents {
-    display:flex;
+    // display:flex;
     overflow-x: auto;
-    margin:0 $gap $gap $gap;
-    
+    overflow-y: hidden;
+    // margin:0 $gap $gap $gap;
+    height:$board-content-height;
     &::-webkit-scrollbar{
       -webkit-appearance: none;
     }
@@ -16,5 +17,9 @@
       background-color: darken($list-bg-color, 15);
       border-radius: 8px;
     }
-    
+    .column-drop-preview {
+      background-color: rgba(150, 150, 200, 0.1);
+      border: 1px dashed #abc;
+      margin: 5px 45px 5px 5px;
+    }
   }

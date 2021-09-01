@@ -3,13 +3,24 @@
 //px
 $gap : 15px;
 $column-header-height: 36px;
-$column-footer-height: 36px;
+$column-footer-height: 50px;
 $column-border-radius: 8px;
 $card-border-radius: 5px;
 
+//app bar + board bar + board content = 100vh
+$navbar-app-height:5vh;
+$navbar-board-height: 6vh;
+$board-content-height: 89vh;
 
 
 //color
 $board-bg-color: #0079bf;
 $app-bar-bg-color: #0067a3;
 $list-bg-color: #ebecf0;
+
+//screen
+$screen-lg: 1201px;
+$screen-md: 992px;
+$screen-phone: 480px;
+$screen-ip6-down: '(max-width: 375px)';
+

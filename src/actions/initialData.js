@@ -105,7 +105,7 @@ export const initialData = {
               id: 'card-12',
               boardId: 'board-1',
               columnId: 'column-1',
-              title:'Title card 1',
+              title:'Title card 12',
               cover: null
             }
           ]

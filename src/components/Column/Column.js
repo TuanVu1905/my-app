@@ -7,13 +7,10 @@ import { Container, Draggable } from 'react-smooth-dnd'
 
 export default function Column(props) {
 
-  const { column } = props
+  const { column, onCardDrop } = props
 
   const cards = mapOrder(column.cards, column.cardOrder, 'id')
 
-  const onCardDrop = (dropResult) => {
-    console.log(dropResult)
-  }
   return (
     <div className="column">
       <header className="header column-drag-handle">{column.title}</header>
@@ -21,16 +18,7 @@ export default function Column(props) {
         <Container
           {...column.props}
           groupName="col" //cho phép kéo thả chuyển item qua lại
-          // onDragStart={e => console.log('drag started', e)}
-          // onDragEnd={e => console.log('drag end', e)}
-          // onDragEnter={() => {
-          //   console.log('drag enter:', column.id)
-          // }}
-          // onDragLeave={() => {
-          //   console.log('drag leave:', column.id)
-          // }}
-          // onDropReady={p => console.log('Drop ready: ', p)}
-          onDrop={onCardDrop}
+          onDrop={dropResult => onCardDrop(column.id, dropResult)}
           getChildPayload={index => cards[index]}
           dragClass="card-ghost"
           dropClass="card-ghost-drop"
@@ -50,7 +38,11 @@ export default function Column(props) {
           }
         </Container>
       </div>
-      <footer>Add another card</footer>
+      <footer>
+        <div className='footer-actions'>
+          <i className="fa fa-plus icon"/> Add another card
+        </div>
+      </footer>
     </div>
   )
 }

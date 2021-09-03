@@ -9,16 +9,14 @@ $column-height:calc(#{$board-content-height - #{$gap * 2}});
     margin-left: $gap;
     margin-bottom: $gap;  
     > * {
-      background-color:$list-bg-color;
+      background-color:$column-bg-color;
       color: #333;
       padding : 0 8px;
     }
     header.column-drag-handle {
-      padding: 10px;
       text-align: center;
-      height: $column-header-height;
-      line-height: $column-header-height;
-      font-size: 16px;
+      line-height: $column-header-height+10;
+      font-size: 18px;
       font-weight: bold;
       border-top-left-radius: $column-border-radius;
       border-top-right-radius: $column-border-radius;
@@ -34,7 +32,7 @@ $column-height:calc(#{$board-content-height - #{$gap * 2}});
       border-bottom-right-radius: $column-border-radius;
       color: #888;
       .footer-actions{
-        margin-left: $gap;
+        margin-left: $gap/2;
         cursor: pointer;
         &:hover{
           color: #333;
@@ -52,8 +50,8 @@ $column-height:calc(#{$board-content-height - #{$gap * 2}});
          width: 11px;
        }
        &::-webkit-scrollbar-thumb {
-         background-color: darken($list-bg-color, 15);
-         border-right: 5px solid $list-bg-color;
+         background-color: darken($column-bg-color, 15);
+         border-right: 5px solid $column-bg-color;
        }
        .card-ghost {
         transition: transform 0.18s ease;

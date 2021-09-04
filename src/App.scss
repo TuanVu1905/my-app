@@ -22,4 +22,14 @@ body{
     margin: 0 15px;
     padding: 0;
   }
+  .tuanvu-edit-table {
+    background-color: inherit;
+    border: none;
+    font-size:inherit;
+    font-weight:inherit;
+    cursor: pointer;
+    &:focus {
+      border: 1px solid $input-bg-color;
+    }
+  }
 }

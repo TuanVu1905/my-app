@@ -98,6 +98,33 @@ export default function BoardContent() {
     toggleOpenNewColumn()
   }
 
+  const onUpdateColumn = (newColumnUpdate) => {
+
+    const columnId = newColumnUpdate.id
+
+    let newColumns = [...columns]
+
+    const columnIndexToUpdate = newColumns.findIndex(item => item.id === columnId)
+
+    //check xóa hay sửa
+    if (newColumnUpdate._destroy) {
+      //xóa
+      newColumns.splice(columnIndexToUpdate, 1)
+    }
+    else {
+      //edit
+      newColumns.splice(columnIndexToUpdate, 1, newColumnUpdate)
+    }
+    //update board
+    let newBoard = { ...board }
+    newBoard.columnOrder = newColumns.map(x => x.id)
+    newBoard.columns = newColumns
+
+    setColumns(newColumns)
+    setBoard(newBoard)
+    // console.log(columns)
+  }
+
   return (
     <div className="board-contents">
       <Container
@@ -114,7 +141,7 @@ export default function BoardContent() {
         {
           columns.map((column, index) => (
             <Draggable key={index}>
-              <Column column={column} onCardDrop={onCardDrop} />
+              <Column column={column} onCardDrop={onCardDrop} onUpdateColumn={onUpdateColumn} />
             </Draggable>
           ))
         }

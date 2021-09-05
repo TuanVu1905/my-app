@@ -32,4 +32,15 @@ body{
       border: 1px solid $input-bg-color;
     }
   }
+  span.cancel-icon {
+    margin-left: $gap;
+    i {
+      font-size: 20px;
+      color:$color-danger;
+      cursor: pointer;
+      &:hover {
+        color: darken($color: $color-danger, $amount: 15);
+      } 
+    }
+  }
 }

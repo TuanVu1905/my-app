@@ -9,6 +9,6 @@ export const saveColumnTitleByEnter = (e) => {
 
 //select all content when click title
 export const selectAllInlineText = (e) => {
-  e.target.focus()
-  e.target.select()
+  e.target.focus() // tự focus
+  e.target.select() // tự chọn nội dung
 }

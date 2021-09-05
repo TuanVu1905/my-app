@@ -1,5 +1,5 @@
 import Column from 'components/Column/Column'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './BoardContent.scss'
 import { initialData } from '../../actions/initialData'
 import { isEmpty } from 'lodash'
@@ -18,7 +18,7 @@ export default function BoardContent() {
   const inputRef = useRef(null)
   const [newColumnTitles, setNewColumnTitles] = useState('')
 
-  const onNewColumnTile = useCallback((e) => setNewColumnTitles(e.target.value), [])
+  const onNewColumnTile = (e) => setNewColumnTitles(e.target.value)
 
   useEffect(() => {
     const boardFromDb = initialData.boards.find(board => board.id === 'board-1')
@@ -39,6 +39,9 @@ export default function BoardContent() {
     return <div className="not-found" style={{ padding: '10px', color: 'white' }}>Board not found</div>
   }
 
+  const toggleOpenNewColumn = () => {
+    setOpenNewColumns(!openNewColumns)
+  }
   const onColumnDrop = (dropResult) => {
 
     //update columns
@@ -68,9 +71,6 @@ export default function BoardContent() {
     }
   }
 
-  const toggleOpenNewColumn = () => {
-    setOpenNewColumns(!openNewColumns)
-  }
 
   const addNewColumn = () => {
     if (!newColumnTitles) {
@@ -141,7 +141,7 @@ export default function BoardContent() {
         {
           columns.map((column, index) => (
             <Draggable key={index}>
-              <Column column={column} onCardDrop={onCardDrop} onUpdateColumn={onUpdateColumn} />
+              <Column column={column} onCardDrop={onCardDrop} onUpdateColumn={onUpdateColumn}/>
             </Draggable>
           ))
         }
@@ -166,12 +166,12 @@ export default function BoardContent() {
                 value={newColumnTitles}
                 onChange={onNewColumnTile}
                 onKeyDown={
-                  event => (event.key==='Enter') && addNewColumn()
+                  event => (event.key === 'Enter') && addNewColumn()
                 }
               />
               <Button onClick={addNewColumn} variant='success' size='sm' className="shadow-none btn">Add column</Button>
-              <span className="cancel-new-column">
-                <i onClick={toggleOpenNewColumn} className="fa fa-trash icon" />
+              <span className="cancel-new-column cancel-icon">
+                <i onClick={toggleOpenNewColumn} className="fa fa-trash" />
               </span>
             </Col>
           </Row>
